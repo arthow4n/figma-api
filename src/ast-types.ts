@@ -292,6 +292,12 @@ export type LayoutGrid = {
     count: number,
 };
 
+export enum LayoutMode {
+    NONE = 'NONE',
+    HORIZONTAL = 'HORIZONTAL',
+    VERTICAL = 'VERTICAL',
+}
+
 export enum EffectType {
     INNER_SHADOW = 'INNER_SHADOW',
     DROP_SHADOW = 'DROP_SHADOW',
@@ -609,6 +615,10 @@ export interface FRAME {
     relativeTransform?: Transform;
     /** Does this node clip content outside of its bounds? */
     clipsContent: boolean;
+    /** default: NONE Whether this layer uses auto-layout to position its children. */
+    layoutMode?: LayoutMode|null;
+    /** default: 0 The distance between children of the frame. This property is only applicable for auto-layout frames. */
+    itemSpacing?: number;
     /** default: [] An array of layout grids attached to this node (see layout grids section for more details). GROUP nodes do not have this attribute */
     layoutGrids?: LayoutGrid[];
     /** default: [] An array of effects attached to this node (see effects section for more details) */
