@@ -262,6 +262,25 @@ export declare enum LayoutMode {
     HORIZONTAL = "HORIZONTAL",
     VERTICAL = "VERTICAL"
 }
+export declare enum PrimaryAxisSizingMode {
+    FIXED = "FIXED",
+    AUTO = "AUTO"
+}
+export declare enum CounterAxisSizingMode {
+    FIXED = "FIXED",
+    AUTO = "AUTO"
+}
+export declare enum PrimaryAxisAlignItems {
+    MIN = "MIN",
+    CENTER = "CENTER",
+    MAX = "MAX",
+    SPACE_BETWEEN = "SPACE_BETWEEN"
+}
+export declare enum CounterAxisAlignItems {
+    MIN = "MIN",
+    CENTER = "CENTER",
+    MAX = "MAX"
+}
 export declare enum EffectType {
     INNER_SHADOW = "INNER_SHADOW",
     DROP_SHADOW = "DROP_SHADOW",
@@ -523,6 +542,22 @@ export interface FRAME {
     clipsContent: boolean;
     /** default: NONE Whether this layer uses auto-layout to position its children. */
     layoutMode?: LayoutMode | null;
+    /** default: AUTO Whether the primary axis has a fixed length (determined by the user) or an automatic length (determined by the layout engine). This property is only applicable for auto-layout frames. */
+    primaryAxisSizingMode?: PrimaryAxisSizingMode;
+    /** default: AUTO Whether the counter axis has a fixed length (determined by the user) or an automatic length (determined by the layout engine). This property is only applicable for auto-layout frames. */
+    counterAxisSizingMode?: CounterAxisSizingMode;
+    /** default: MIN Determines how the auto-layout frame’s children should be aligned in the primary axis direction. This property is only applicable for auto-layout frames. */
+    primaryAxisAlignItems?: PrimaryAxisAlignItems;
+    /** default: MIN Determines how the auto-layout frame’s children should be aligned in the counter axis direction. This property is only applicable for auto-layout frames. */
+    counterAxisAlignItems?: CounterAxisAlignItems;
+    /**default: 0 The padding betweeen the left border of the frame and its children. This property is only applicable for auto-layout frames. */
+    paddingLeft?: number;
+    /**default: 0 The padding betweeen the left border of the frame and its children. This property is only applicable for auto-layout frames. */
+    paddingRight?: number;
+    /**default: 0 The padding betweeen the left border of the frame and its children. This property is only applicable for auto-layout frames. */
+    paddingTop?: number;
+    /**default: 0 The padding betweeen the left border of the frame and its children. This property is only applicable for auto-layout frames. */
+    paddingBottom?: number;
     /** default: 0 The distance between children of the frame. This property is only applicable for auto-layout frames. */
     itemSpacing?: number;
     /** default: [] An array of layout grids attached to this node (see layout grids section for more details). GROUP nodes do not have this attribute */
